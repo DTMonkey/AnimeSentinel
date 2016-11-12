@@ -38,14 +38,14 @@ return [
             'driver' => 'database',
             'table' => 'jobs',
             'queue' => 'default',
-            'retry_after' => 3600,
+            'retry_after' => 90,
         ],
 
         'beanstalkd' => [
             'driver' => 'beanstalkd',
             'host' => 'localhost',
             'queue' => 'default',
-            'retry_after' => 3600,
+            'retry_after' => 90,
         ],
 
         'sqs' => [
@@ -61,7 +61,7 @@ return [
             'driver' => 'redis',
             'connection' => 'default',
             'queue' => 'default',
-            'retry_after' => 3600,
+            'retry_after' => 90,
         ],
 
     ],
@@ -80,47 +80,6 @@ return [
     'failed' => [
         'database' => env('DB_CONNECTION', 'mysql'),
         'table' => 'failed_jobs',
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Jobs importance order
-    |--------------------------------------------------------------------------
-    |
-    | This data contains the hierarchy used to determine which jobs overwrite
-    | other jobs.
-    |
-    */
-
-    'jobhierarchy' => [
-      'ShowAdd',
-      'ShowUpdate(true)',
-      [
-        'AnimeFindVideos',
-        ['AnimeReprocessEpisodes'],
-        ['VideoRefreshLink'],
-      ],
-      [
-        'ShowUpdate(false)',
-      ],
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Queue importance order
-    |--------------------------------------------------------------------------
-    |
-    | This data contains the hierarchy used to determine which queues have
-    | a higher priority than others.
-    |
-    */
-
-    'queuehierarchy' => [
-      'periodic_high',
-      'periodic_low',
-      'high',
-      'default',
-      'low',
     ],
 
 ];

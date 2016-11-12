@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'noreply@animesentinel.tv',
-        'name' => 'AnimeSentinel',
+        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
     /*
@@ -111,28 +111,5 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Admin Email Addresses
-    |--------------------------------------------------------------------------
-    |
-    | These email addresses will be used for mails that need to be send to
-    | administrators.
-    |
-    */
-
-    'admin_addresses' => [env('ADDRESS_ADMIN')],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Debug Email Addresses
-    |--------------------------------------------------------------------------
-    |
-    | These email addresses will be used to send debug reports to.
-    |
-    */
-
-    'debug_addresses' => [env('ADDRESS_DEBUG')],
 
 ];
